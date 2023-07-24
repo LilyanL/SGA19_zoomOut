@@ -1,16 +1,16 @@
-function [] = visualize_map_on_source(S1, S2, T12, parent)
+function h = visualize_map_on_source(S1, S2, T12, parent)
 [g1,g2,g3] = set_mesh_color(S2);
 f1 = g1(T12);
 f2 = g2(T12);
 f3 = g3(T12);
 
 if(nargin == 4)
-    trimesh(S2.surface.TRIV, S2.surface.X, S2.surface.Y, S2.surface.Z, ...
+    h = trimesh(S2.surface.TRIV, S2.surface.X, S2.surface.Y, S2.surface.Z, ...
         'FaceVertexCData', [g1, g2, g3],...
         'FaceColor', 'interp', 'EdgeColor', 'none', 'Parent', parent);
 
 else
-    trimesh(S2.surface.TRIV, S2.surface.X, S2.surface.Y, S2.surface.Z, ...
+    h = trimesh(S2.surface.TRIV, S2.surface.X, S2.surface.Y, S2.surface.Z, ...
         'FaceVertexCData', [g1, g2, g3],...
         'FaceColor', 'interp', 'EdgeColor', 'none');
     axis equal; axis off;
